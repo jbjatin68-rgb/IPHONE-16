@@ -1,0 +1,571 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone 16 | Apple</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #0071e3;
+        }
+
+        .cart {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 70px 20px;
+            background: linear-gradient(135deg, #ffffff, #e9e9ee);
+        }
+
+        .hero-content {
+            max-width: 1000px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 120px);
+            letter-spacing: -6px;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #6e6e73;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            margin: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #0071e3;
+            color: white;
+        }
+
+        .secondary {
+            border: 1px solid #0071e3;
+            color: #0071e3;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* PHONE */
+        .phone-area {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone {
+            width: 260px;
+            height: 520px;
+            background: linear-gradient(145deg, #151515, #3b3b3b);
+            border: 8px solid #111;
+            border-radius: 48px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            transform: rotate(-5deg);
+            transition: 0.5s;
+        }
+
+        .phone:hover {
+            transform: rotate(0deg) scale(1.04);
+        }
+
+        .screen {
+            position: absolute;
+            inset: 7px;
+            border-radius: 38px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 30% 30%, #ff7eb3, transparent 30%),
+                radial-gradient(circle at 70% 70%, #6a5cff, transparent 35%),
+                linear-gradient(135deg, #111, #29133d);
+        }
+
+        .dynamic-island {
+            position: absolute;
+            top: 13px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85px;
+            height: 25px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 2;
+        }
+
+        .camera {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            width: 75px;
+            height: 110px;
+            background: #181818;
+            border-radius: 20px;
+            padding: 8px;
+            z-index: 5;
+        }
+
+        .lens {
+            width: 29px;
+            height: 29px;
+            background: radial-gradient(circle, #153c68, #050505 65%);
+            border: 3px solid #444;
+            border-radius: 50%;
+            margin-bottom: 8px;
+        }
+
+        /* FEATURES */
+        .section {
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            color: #6e6e73;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .feature {
+            background: white;
+            padding: 40px 25px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature .icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .feature p {
+            color: #6e6e73;
+            line-height: 1.6;
+        }
+
+        /* COLORS */
+        .colors {
+            background: #000;
+            color: white;
+        }
+
+        .color-options {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .color {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 4px solid white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .color:hover {
+            transform: scale(1.15);
+        }
+
+        .black {
+            background: #111;
+        }
+
+        .white {
+            background: #eee;
+        }
+
+        .pink {
+            background: #f7b7c8;
+        }
+
+        .blue {
+            background: #8bb8e8;
+        }
+
+        .teal {
+            background: #76c9c8;
+        }
+
+        /* PRICE */
+        .price-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            border-radius: 30px;
+            padding: 50px 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .price {
+            font-size: 45px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .buy-btn {
+            display: inline-block;
+            background: #0071e3;
+            color: white;
+            padding: 17px 45px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .buy-btn:hover {
+            background: #005bb5;
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1d1d1f;
+            color: #aaa;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            margin: 8px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .section h2 {
+                font-size: 38px;
+            }
+
+            .phone {
+                width: 220px;
+                height: 440px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo"></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#colors">Colors</a></li>
+            <li><a href="#buy">Buy</a></li>
+        </ul>
+
+        <div class="cart">🛒</div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>iPhone 16</h1>
+
+            <h2>Built for Apple Intelligence.</h2>
+
+            <p>
+                Meet iPhone 16. A powerful smartphone with an advanced camera,
+                stunning display, powerful performance and an all-new design.
+            </p>
+
+            <div class="buttons">
+                <a href="#buy" class="btn primary">Buy Now</a>
+                <a href="#features" class="btn secondary">Learn More</a>
+            </div>
+
+            <div class="phone-area">
+
+                <div class="phone">
+
+                    <div class="camera">
+                        <div class="lens"></div>
+                        <div class="lens"></div>
+                    </div>
+
+                    <div class="screen">
+                        <div class="dynamic-island"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+
+        <h2>Powerful Features</h2>
+
+        <p class="section-subtitle">
+            Everything you need. More than you expect.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="icon">⚡</div>
+                <h3>A18 Chip</h3>
+                <p>
+                    Experience powerful performance and incredible efficiency
+                    with the next-generation chip.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">📷</div>
+                <h3>Advanced Camera</h3>
+                <p>
+                    Capture stunning photos and videos with the advanced
+                    camera system.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🔋</div>
+                <h3>All-Day Battery</h3>
+                <p>
+                    Stay connected throughout your day with long-lasting
+                    battery life.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🛡️</div>
+                <h3>Durable Design</h3>
+                <p>
+                    Built with a strong aerospace-grade aluminum design
+                    for everyday durability.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">✨</div>
+                <h3>Super Retina Display</h3>
+                <p>
+                    Enjoy vibrant colors, sharp details and an immersive
+                    viewing experience.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🌐</div>
+                <h3>5G Connectivity</h3>
+                <p>
+                    Download, stream and connect at incredible speeds
+                    with 5G technology.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COLORS -->
+    <section class="section colors" id="colors">
+
+        <h2>Choose Your Color</h2>
+
+        <p class="section-subtitle">
+            Pick the finish that matches your style.
+        </p>
+
+        <div class="color-options">
+
+            <div class="color black" title="Black"></div>
+            <div class="color white" title="White"></div>
+            <div class="color pink" title="Pink"></div>
+            <div class="color blue" title="Blue"></div>
+            <div class="color teal" title="Teal"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BUY -->
+    <section class="section" id="buy">
+
+        <h2>iPhone 16</h2>
+
+        <p class="section-subtitle">
+            Choose your storage and get started.
+        </p>
+
+        <div class="price-box">
+
+            <h3>iPhone 16</h3>
+
+            <p>Available in multiple storage options.</p>
+
+            <div class="price">From ₹79,900</div>
+
+            <a href="#" class="buy-btn">Buy iPhone 16</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p> iPhone 16</p>
+
+        <p>
+            This is a demo website created using HTML and CSS.
+        </p>
+
+        <p>
+            © 2026 Demo Website
+        </p>
+
+    </footer>
+
+</body>
+</html>
+
